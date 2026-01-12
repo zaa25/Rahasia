@@ -144,7 +144,7 @@ input{
     <div class="photo"><img src="nailong.jpg"></div>
     <h1>Hiii lyy 💛</h1>
     <p>Klik next yaa ✨</p>
-    <button class="btn" onclick="nextPage(2)">Next </button>
+    <button class="btn" onclick="nextPage(2)">Next</button>
   </div>
 </div>
 
@@ -161,18 +161,14 @@ input{
 <!-- PAGE 3 : INPUT UMUR -->
 <div class="page" id="page3">
   <div class="card">
-    
     <div class="photo">
       <img src="nailong4.jpg" alt="nailong">
     </div>
-
     <h2>Sekalang masukin umul yak</h2>
     <input type="number" id="umur" placeholder="isi disiniii">
     <button class="btn" onclick="saveAge()">Next</button>
-
   </div>
 </div>
-
 
 <!-- PAGE 4 : UCAPAN -->
 <div class="page" id="page4">
@@ -180,19 +176,19 @@ input{
     <div class="photo"><img src="nailong3.jpg"></div>
 
     <div class="message">
-      <h2>🎉 Happy Birthday <span id="showName"></span>! 🎉</h2>
-      <p>Cieee ulang tahun nih <span id="showAge"></span></p>
-      <p>semoga panjang umur,sehat sehat terus,dimudahkan segala urusannya,dikabulkan cita-citanya Aamiin✨ (kulangin ngeblanknya yak hehe)</p>
+      <h2>🎉 Happy Birthday, <span id="showName"></span>! 🎉</h2>
+      <p>Cieee ulang tahun yang ke-<span id="showAge"></span> nih 😆</p>
+      <p>Semoga panjang umur, sehat terus, dimudahkan segala urusannya, dan dikabulkan semua cita-citanya. Aamiin ✨ (kulangin ngeblanknya yak hehe)</p>
       <p>
-        Pergi ketaman memetik melati
-        Tak lupa pula membawa peti
-        Selamat ulang tahun kawanku lily
-        Semoga bahagia selalu menemani
+        Pergi ke taman memetik melati<br>
+        Tak lupa pula membawa peti<br>
+        Selamat ulang tahun kawanku Lily<br>
+        Semoga bahagia selalu menemani 💛
       </p>
-      <b>SEHAT SEHAT DELKUUU</b>
+      <b>SEHAT SEHAT DELKUUUU</b>
     </div>
 
-    <button class="btn" onclick="nextPage(1)">Start Over 🤍</button>
+    <button class="btn" onclick="resetAll()">Start Over 🤍</button>
   </div>
 </div>
 
@@ -206,15 +202,29 @@ function nextPage(n){
 }
 
 function saveName(){
-    userName=document.getElementById("nama").value || "LILYYY";
+    const namaInput = document.getElementById("nama");
+    userName = namaInput.value || "LILYYY";
+    namaInput.value = ""; // reset input nama
     nextPage(3);
 }
 
 function saveAge(){
-    userAge=document.getElementById("umur").value || "?"
-    document.getElementById("showName").innerText=userName;
-    document.getElementById("showAge").innerText=userAge;
+    const umurInput = document.getElementById("umur");
+    userAge = umurInput.value || "?";
+    umurInput.value = ""; // reset input umur
+
+    document.getElementById("showName").innerText = userName;
+    document.getElementById("showAge").innerText = userAge;
+
     nextPage(4);
+}
+
+function resetAll(){
+    userName = "";
+    userAge = "";
+    document.getElementById("showName").innerText = "";
+    document.getElementById("showAge").innerText = "";
+    nextPage(1);
 }
 
 function confetti(){
@@ -232,8 +242,3 @@ function confetti(){
 
 </body>
 </html>
-
-
-
-
-
